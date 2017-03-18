@@ -1,4 +1,5 @@
-scikit-sound (sksound)
-sounddevice
-PyQtGraph
+wave
 numpy
+pyqt4
+time
+sounddevice
