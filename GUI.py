@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-from Sound import Sound
+import Sound
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -52,14 +52,14 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-        self.sound = Sound()
+        self.sound = Sound.Sound()
         self.setFunc()
 
     def setFunc(self):
-        self.pushButton.clicked.connect(self.sound.record())
-        self.pushButton_2.clicked.connect(self.sound.play())
-        self.pushButton_3.clicked.connect(self.sound.plot())
-        self.pushButton_4.clicked.connect(self.sound.browse())
+        self.pushButton.clicked.connect(self.sound.record)
+        self.pushButton_2.clicked.connect(self.sound.play)
+        self.pushButton_3.clicked.connect(self.sound.plot)
+        self.pushButton_4.clicked.connect(self.sound.browse)
 
 
     def retranslateUi(self, Form):
