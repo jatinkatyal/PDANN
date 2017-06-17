@@ -3,3 +3,4 @@ numpy
 pyqt4
 time
 sounddevice
+pyqtgraph

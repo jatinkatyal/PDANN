@@ -3,11 +3,11 @@ from PyQt4 import QtGui, QtCore
 from scipy.io.wavfile import write
 
 class Sound:
-	def browse(self):
-		path = QtGui.QFileDialog.getOpenFileName(None,"Open file")
+	def __init__(self):
+		pass
+
+	def browse(self,path):
 		self.file = wave.open(path,'r')
-		QtCore.QTimer.singleShot(10,app.quit)
-		app.exec_()
 		print('Opening',path)
 		self.rate = self.file.getframerate()
 		self.frames = self.file.getnframes()
@@ -44,9 +44,8 @@ class Sound:
 		p1 = win.addPlot(title="Sound waveform",x=numpy.arange(self.frames)/self.rate, y=self.data[0])
 		win.nextRow()
 		p2 = win.addPlot(title="frequency", y=abs(self.fourierData[0]))
-
-		if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-			QtGui.QApplication.instance().exec_()
-
+		win.show()
+		win.exec_()
+		
 	def exit(self):
 		self.file.close()

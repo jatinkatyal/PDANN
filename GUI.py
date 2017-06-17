@@ -59,11 +59,15 @@ class Ui_Form(object):
         self.pushButton.clicked.connect(self.sound.record)
         self.pushButton_2.clicked.connect(self.sound.play)
         self.pushButton_3.clicked.connect(self.sound.plot)
-        self.pushButton_4.clicked.connect(self.sound.browse)
+        self.pushButton_4.clicked.connect(self.browse)
+
+    def browse(self):
+        path = QtGui.QFileDialog.getOpenFileName(None,"Open file")
+        self.sound.browse(path)
 
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Form", None))        
+        Form.setWindowTitle(_translate("Form", "Pitch Detection", None))        
         self.pushButton.setText(_translate("Form", "Record", None))
         self.pushButton_2.setText(_translate("Form", "Play", None))
         self.pushButton_3.setText(_translate("Form", "Plot", None))
